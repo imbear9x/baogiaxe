@@ -210,23 +210,26 @@ if ( ! function_exists ( 'my_get_theme_options' ) ) {
 	'transmission_2'     	=> __('Manual','language'),
 	'transmission_3'     	=> __('Semi-Auto','language'),
 	'transmission_4'     	=> __('Other','language'),
-	'vehicle_type_text'     	=> __('Vehicle Type','language'),
-    'vehicle_type_1' => __('Convertible','language'),
+	'vehicle_type_text'     	=> __('Loại xe','language'),
+    'Ford_Focus_2019' => __('Ford Focus 2019','language'),
 
-    'vehicle_type_2' => __('Coupe','language'),
+    'Ford_Transit_2019' => __('Ford Transit 2019','language'),
 
-    'vehicle_type_3' => __('Minivan','language'),
+    'Ford_Ranger_2019' => __('Ford Ranger 2019','language'),
 
-    'vehicle_type_4' => __('Pickup','language'),
+    'Ford_Everest_2019' => __('Ford Everest 2019','language'),
 
-    'vehicle_type_5' => __('Sedan','language'),
+    'Ford_Ecosport_2019' => __('Ford Ecosport 2019','language'),
 
-    'vehicle_type_6' => __('Sport Utility','language'),
+    'Ford_Explorer_2019' => __('Ford Explorer 2019','language'),
 
-    'vehicle_type_7' => __('Hatchback','language'),
-    'vehicle_type_8' => __('Wagon','language'),
-    'vehicle_type_9' => __('Test','language'),
+	'Ford_Ranger_Raptor_2019' => __('Ford Ranger Raptor 2019','language'),
 
+	'Ford_VietNam' => __('Ford Việt Nam','language'),
+	
+	'Ford_Cuu_Thuong' => __('Xe Cứu Thương','language'),
+	
+    'Ford_Other' => __('Các hãng xe khác','language'),
 	);
  
 	$defaults = apply_filters( 'my_default_theme_options', $defaults );
@@ -698,24 +701,26 @@ function my_theme_options_validate( $input ) {
 	$output['transmission_4'] = wp_filter_nohtml_kses( $input['transmission_4'] );
 	if ( isset( $input['vehicle_type_text'] ) && ! empty( $input['vehicle_type_text'] ) )
 	$output['vehicle_type_text'] = wp_filter_nohtml_kses( $input['vehicle_type_text'] );
-	if ( isset( $input['vehicle_type_1'] ) && ! empty( $input['vehicle_type_1'] ) )
-	$output['vehicle_type_1'] = wp_filter_nohtml_kses( $input['vehicle_type_1'] );
-	if ( isset( $input['vehicle_type_2'] ) && ! empty( $input['vehicle_type_2'] ) )
-	$output['vehicle_type_2'] = wp_filter_nohtml_kses( $input['vehicle_type_2'] );
-	if ( isset( $input['vehicle_type_3'] ) && ! empty( $input['vehicle_type_3'] ) )
-	$output['vehicle_type_3'] = wp_filter_nohtml_kses( $input['vehicle_type_3'] );
-	if ( isset( $input['vehicle_type_4'] ) && ! empty( $input['vehicle_type_4'] ) )
-	$output['vehicle_type_4'] = wp_filter_nohtml_kses( $input['vehicle_type_4'] );
-	if ( isset( $input['vehicle_type_5'] ) && ! empty( $input['vehicle_type_5'] ) )
-	$output['vehicle_type_5'] = wp_filter_nohtml_kses( $input['vehicle_type_5'] );
-	if ( isset( $input['vehicle_type_6'] ) && ! empty( $input['vehicle_type_6'] ) )
-	$output['vehicle_type_6'] = wp_filter_nohtml_kses( $input['vehicle_type_6'] );
-	if ( isset( $input['vehicle_type_7'] ) && ! empty( $input['vehicle_type_7'] ) )
-	$output['vehicle_type_7'] = wp_filter_nohtml_kses( $input['vehicle_type_7'] );
-	if ( isset( $input['vehicle_type_8'] ) && ! empty( $input['vehicle_type_8'] ) )
-	$output['vehicle_type_8'] = wp_filter_nohtml_kses( $input['vehicle_type_8'] );
-	if ( isset( $input['vehicle_type_9'] ) && ! empty( $input['vehicle_type_9'] ) )
-	$output['vehicle_type_9'] = wp_filter_nohtml_kses( $input['vehicle_type_9'] );
+	if ( isset( $input['Ford_Focus_2019'] ) && ! empty( $input['Ford_Focus_2019'] ) )
+	$output['Ford_Focus_2019'] = wp_filter_nohtml_kses( $input['Ford_Focus_2019'] );
+	if ( isset( $input['Ford_Transit_2019'] ) && ! empty( $input['Ford_Transit_2019'] ) )
+	$output['Ford_Transit_2019'] = wp_filter_nohtml_kses( $input['Ford_Transit_2019'] );
+	if ( isset( $input['Ford_Ranger_2019'] ) && ! empty( $input['Ford_Ranger_2019'] ) )
+	$output['Ford_Ranger_2019'] = wp_filter_nohtml_kses( $input['Ford_Ranger_2019'] );
+	if ( isset( $input['Ford_Everest_2019'] ) && ! empty( $input['Ford_Everest_2019'] ) )
+	$output['Ford_Everest_2019'] = wp_filter_nohtml_kses( $input['Ford_Everest_2019'] );
+	if ( isset( $input['Ford_Ecosport_2019'] ) && ! empty( $input['Ford_Ecosport_2019'] ) )
+	$output['Ford_Ecosport_2019'] = wp_filter_nohtml_kses( $input['Ford_Ecosport_2019'] );
+	if ( isset( $input['Ford_Explorer_2019'] ) && ! empty( $input['Ford_Explorer_2019'] ) )
+	$output['Ford_Explorer_2019'] = wp_filter_nohtml_kses( $input['Ford_Explorer_2019'] );
+	if ( isset( $input['Ford_Ranger_Raptor_2019'] ) && ! empty( $input['Ford_Ranger_Raptor_2019'] ) )
+	$output['Ford_Ranger_Raptor_2019'] = wp_filter_nohtml_kses( $input['Ford_Ranger_Raptor_2019'] );
+	if ( isset( $input['Ford_Cuu_Thuong'] ) && ! empty( $input['Ford_Cuu_Thuong'] ) )
+	$output['Ford_Cuu_Thuong'] = wp_filter_nohtml_kses( $input['Ford_Cuu_Thuong'] );
+	if ( isset( $input['Ford_VietNam'] ) && ! empty( $input['Ford_VietNam'] ) )
+	$output['Ford_VietNam'] = wp_filter_nohtml_kses( $input['Ford_VietNam'] );
+	if ( isset( $input['Ford_Other'] ) && ! empty( $input['Ford_Other'] ) )
+	$output['Ford_Other'] = wp_filter_nohtml_kses( $input['Ford_Other'] );
 	return apply_filters( 'my_theme_options_validate', $output, $input );
 }
 $CarsGallery = get_option('CarsGallery_mode');

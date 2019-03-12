@@ -202,7 +202,7 @@
 	</div>
 </div>
 <?php endwhile; else : ?>						
-	<p style="padding:30px;"><?php _e('Sorry, no listings matched your criteria.','language');?></p>
+	<p style="padding:30px;"><?php _e('Xin lỗi hiện tại chúng tôi không có thông tin nào về sản phẩm này.','language');?></p>
 	<?php endif; ?>
 	<div class="bottom-pagination">
 		<p><a id="link" href="#top"><?php _e('BACK TO TOP','language');?></a></p>

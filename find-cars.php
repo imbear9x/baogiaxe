@@ -5,39 +5,39 @@
 			<ul class="cars-list list-one">
 				<div class="col-sm-2">
 					<li>
-						<a   href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_1']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/convertible.png" alt="<?php echo $options['vehicle_type_1'];?>" /></a>
-						<a   href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_1']);?>/"><?php echo $options['vehicle_type_1'];?></a>
+						<a   href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Focus_2019']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/Ford_Focus_2019.png" alt="<?php echo $options['Ford_Focus_2019'];?>" /></a>
+						<a   href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Focus_2019']);?>/"><?php echo $options['Ford_Focus_2019'];?></a>
 					 </li>
 				</div>
 				<div class="col-sm-2">
 					<li>
-						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_2']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/luxury.png" alt="<?php echo $options['vehicle_type_2'];?>" /></a>
-						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_2']);?>/"><?php echo $options['vehicle_type_2'];?></a>
+						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Transit_2019']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/Ford_Transit_2019.png" alt="<?php echo $options['Ford_Transit_2019'];?>" /></a>
+						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Transit_2019']);?>/"><?php echo $options['Ford_Transit_2019'];?></a>
 					</li>
 				</div>
 				<div class="col-sm-2">
 					<li>
-						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_3']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/minivans.png" alt="<?php echo $options['vehicle_type_3'];?>" /></a>
-						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_3']);?>/"><?php echo $options['vehicle_type_3'];?></a>
+						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Ranger_2019']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/Ford_Ranger_2019.png" alt="<?php echo $options['Ford_Ranger_2019'];?>" /></a>
+						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Ranger_2019']);?>/"><?php echo $options['Ford_Ranger_2019'];?></a>
 					</li>
 				</div>
 				<div class="col-sm-2">
 					<li>
-						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_4']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/pickuptrucks.png" alt="<?php echo $options['vehicle_type_4'];?>" /></a>
-						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_4']);?>/"><?php echo $options['vehicle_type_4'];?></a> 						
+						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Everest_2019']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/Ford_Everest_2019.png" alt="<?php echo $options['Ford_Everest_2019'];?>" /></a>
+						<a  href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Everest_2019']);?>/"><?php echo $options['Ford_Everest_2019'];?></a> 						
 					</li>
 				</div>
 				<div class="col-sm-2">
 					<li>
-						<a href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_5']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/sedanscoupes.png" alt="<?php echo $options['vehicle_type_5'];?>" /></a>
-						<a href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_5']);?>/"><strong><?php echo $options['vehicle_type_5'];?></strong></a>
+						<a href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Ecosport_2019']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/Ford_Ecosport_2019.png" alt="<?php echo $options['Ford_Ecosport_2019'];?>" /></a>
+						<a href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Ecosport_2019']);?>/"><strong><?php echo $options['Ford_Ecosport_2019'];?></strong></a>
 						</li>
 				</div>
 
 				<div class="col-sm-2">
 					<li>
-						<a id="link" href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_9']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/sportutilities.png" alt="<?php echo $options['vehicle_type_9'];?>" /></a>
-						<a href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['vehicle_type_9']);?>/"><strong><?php echo $options['vehicle_type_9'];?></strong></a>
+						<a id="link" href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_VietNam']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/Ford_VietNam.png" alt="<?php echo $options['Ford_VietNam'];?>" /></a>
+						<a href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_VietNam']);?>/"><strong><?php echo $options['Ford_VietNam'];?></strong></a>
 					</li>
 				</div>
 			

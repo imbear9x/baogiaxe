@@ -346,7 +346,7 @@ if ( 'user_listing' == get_post_type($post->ID) ) {
 	</div>
 </div> <!-- result car ends -->  
 <?php endforeach; else: ?>
-	<p style="padding:30px;" class="not-found"><?php _e('Sorry, no listings matched your criteria.','language');?></p>
+	<p style="padding:30px;" class="not-found"><?php _e('Xin lỗi hiện tại chúng tôi không có thông tin nào về sản phẩm này.','language');?></p>
 <?php endif; ?>
 			<div class="bottom-pagination"> <!-- Pagination starts -->
                     	<p><a id="link" href="#top"><?php _e('BACK TO TOP','language');?></a></p>

@@ -136,7 +136,7 @@ $meta_boxes = array(
 
 	  "title" => $options['vehicle_type_text'],  
 
-	  "description" => __('Enter the Vehicle Type.','language'),
+	  "description" => __('Chọn loại xe','language'),
 
 	  "type" => "dropdown",
 
@@ -148,23 +148,25 @@ $meta_boxes = array(
 
 	  "hide_in_search" => $options['vehicle_type_hide'],
 
-	  "options" => array("1" => $options["vehicle_type_1"] ,
+	  "options" => array("1" => $options["Ford_Focus_2019"] ,
 
-                         "2" => $options["vehicle_type_2"] ,
+                         "2" => $options["Ford_Transit_2019"] ,
 
-                         "3" => $options["vehicle_type_3"] ,
+                         "3" => $options["Ford_Ranger_2019"] ,
 
-                         "4" => $options["vehicle_type_4"] ,
+                         "4" => $options["Ford_Everest_2019"] ,
 
-                         "5" => $options["vehicle_type_5"] ,
+                         "5" => $options["Ford_Ecosport_2019"] ,
 
-                         "6" => $options["vehicle_type_6"] ,
+                         "6" => $options["Ford_Explorer_2019"] ,
 
-                         "7" => $options["vehicle_type_7"] ,
+                         "7" => $options["Ford_Ranger_Raptor_2019"] ,
 
-												 "8" => $options["vehicle_type_8"] ,
+												 "8" => $options["Ford_Cuu_Thuong"] ,
+
+												 "9" => $options["Ford_VietNam"] ,
 												 
-                         "9" => $options["vehicle_type_9"] ,
+                         "10" => $options["Ford_Other"] ,
 
 					 )
 
@@ -1673,7 +1675,6 @@ add_meta_box( 'gallery', __('Photo Gallery (drag thumbnails to order photos in g
 
 
 	function show(){
-
 		global $wpdb, $post, $AllImages, $field;
 
 		$meta='';
