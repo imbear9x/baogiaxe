@@ -898,7 +898,6 @@ class Carousel extends WP_Widget
 		<div class="item active">
 		<div class="row">
 			
-			
 		<?php
 
 		$the_query = new WP_Query(array(

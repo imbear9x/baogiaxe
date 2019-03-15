@@ -205,7 +205,7 @@
 	<p style="padding:30px;"><?php _e('Xin lỗi hiện tại chúng tôi không có thông tin nào về sản phẩm này.','language');?></p>
 	<?php endif; ?>
 	<div class="bottom-pagination">
-		<p><a id="link" href="#top"><?php _e('BACK TO TOP','language');?></a></p>
+		<p><a id="link" href="#top"><?php _e('Lên đầu trang','language');?></a></p>
 		<p class="paging">
 			<?php wp_reset_postdata(); pagination_nav(); $wp_query = NULL; $wp_query = $temp_query;?>
         </p>

@@ -272,7 +272,7 @@ $meta_boxes = array(
 
 	  "name" => "EngineHP", 
 
-	  "title" => "Engine HP",
+	  "title" => "Động cơ(HP)",
 
 	  "description" =>  __('Enter Engine HP.','language'),
 

@@ -17,12 +17,12 @@
 
 }
 .price-dropdown-min {
-width: 47%;float: left;
+    width: 47%;
+    float: left;
     margin: 6px 0px;
-	
 }
 .price-dropdown-max {
-width: 48%;float: right;
+width: 46%;float: right;
     margin: 6px 6px;
 }
 @media (min-width:768px) and (max-width:1024px) {

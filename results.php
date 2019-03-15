@@ -77,15 +77,26 @@ function cps_search_form() {
 function cps_load_scripts_and_styles(){
 		global $CPS_OPTIONS;
 }
-function show_price_dropdown($min, $max, $step = 1, $currency = '$') {
+function show_min_price_dropdown($min, $max, $step = 1, $currency = '$') {
     if ($min > $max || $step < 1) {
         return;
     }
 
+	$temp_price = ($max - $min)/5;
+	$step = $temp_price;
     for ($i = $min; $i <= $max; $i += $step) : ?>
+        <option value="<?php echo $i; ?>" ><?php echo number_format($i) .' '. $currency;?></option>
 
-        <option value="<?php echo $i; ?>" ><?php echo $currency . number_format($i); ?></option>
-
+    <?php endfor;
+}
+function show_max_price_dropdown($min, $max, $step = 1, $currency = '$') {
+    if ($min > $max || $step < 1) {
+        return;
+    }
+	$temp_price = ($max - $min)/5;
+	$step = $temp_price;
+    for ($i = $max; $i >= $min; $i -= $step) : ?>
+        <option value="<?php echo $i; ?>" ><?php echo number_format($i) .' '. $currency;?></option>
     <?php endfor;
 }
 function cps_display_meta_box_search_form($meta_boxes){	
@@ -118,14 +129,14 @@ function cps_display_meta_box_search_form($meta_boxes){
                     <div class="price-dropdowns-container">
                         <div class="price-dropdown-min">
                             <select id="price-dropdown-min">
-                                <option value="<?php echo $Range->min; ?>"><?php _e('Min Price','language'); ?></option>
-								<?php show_price_dropdown($Range->min, $Range->max, $CPS_OPTIONS['price_range'], $options['currency_text']); ?>
+                                <option value="<?php echo $Range->min; ?>"><?php _e('Giá Min','language'); ?></option>
+								<?php show_min_price_dropdown($Range->min, $Range->max, $CPS_OPTIONS['price_range'], $options['currency_text']); ?>
                             </select>
                         </div>
                         <div class="price-dropdown-max">
                             <select id="price-dropdown-max">
-                                <option value="<?php echo $Range->max; ?>"><?php _e('Max Price','language'); ?></option>
-								<?php show_price_dropdown($Range->min, $Range->max, $CPS_OPTIONS['price_range'], $options['currency_text']); ?>
+                                <option value="<?php echo $Range->max; ?>"><?php _e('Giá Max','language'); ?></option>
+								<?php show_max_price_dropdown($Range->min, $Range->max, $CPS_OPTIONS['price_range'], $options['currency_text']); ?>
                             </select>
                         </div>
                         <input type="hidden" id="price-dropdown-input" name="<?php echo $metaBox['name']?>" value="" />
@@ -349,7 +360,7 @@ if ( 'user_listing' == get_post_type($post->ID) ) {
 	<p style="padding:30px;" class="not-found"><?php _e('Xin lỗi hiện tại chúng tôi không có thông tin nào về sản phẩm này.','language');?></p>
 <?php endif; ?>
 			<div class="bottom-pagination"> <!-- Pagination starts -->
-                    	<p><a id="link" href="#top"><?php _e('BACK TO TOP','language');?></a></p>
+                    	<p><a id="link" href="#top"><?php _e('Lên đầu trang','language');?></a></p>
                     	<p class="paging">
                         	<?php cps_show_pagination() ?>
                         </p>
@@ -621,14 +632,14 @@ $("#city").selectBox();
                 'hide_empty' => '1' ,
                 'exclude' => '1' ,
                 'class' => 'dropdown',
-                'show_option_none' => __('Select State','language'),
+                'show_option_none' => __('Chọn trạng thái','language'),
                 'option_none_value' => '',
                 'name' => 'location' ,
                 'taxonomy' => 'location' ,
                 'walker' => new Walker_CategoryDropdown_Custom() ,
             ));?>
 
-<select name="location" id="city"  class="dropdown" disabled="disabled"><option value=""><?php _e('City (Select State First)','language');?></option></select>
+<select name="location" id="city"  class="dropdown" disabled="disabled"><option value=""><?php _e('Chưa chọn trạng thái','language');?></option></select>
 <?php 
 } else { echo '';}
 ?>

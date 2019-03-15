@@ -116,7 +116,7 @@
 													} else {
 													echo $sorted_locations[0]->name; } ?>		
 											</p>
-												<div style="clear: both"></div><a class="detail-btn" href="<?php the_permalink();?>"><?php _e('View Details','language');?></a>
+												<div style="clear: both"></div><a class="detail-btn" href="<?php the_permalink();?>"><?php _e('Xem chi tiết','language');?></a>
                      					</div>
                      					
                      				</a>
