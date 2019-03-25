@@ -158,7 +158,7 @@
 		</div> 
 		<div class="col-sm-3 col-results">
 			<div class="inventory-right">
-				<p class="price-style results"><?php  if (is_numeric( $fields['price'])){ echo $options['currency_text']; echo number_format($fields['price']);} else {  echo $fields['price']; } ?> </p>
+				<p class="price-style results"><?php  if (is_numeric( $fields['price'])){  echo number_format($fields['price']);echo $options['currency_text'];} else {  echo $fields['price']; } ?> </p>
 				<?php	if (!empty($fields['stock'])){ echo '<p class="stock-inventory">'.$options['stock_text'].' # : '.$fields['stock'].'</p>';}else {  echo ''; }?>
 				<p class="location-tag">
 				<?php $locations_child = get_the_terms($post->ID,'location');

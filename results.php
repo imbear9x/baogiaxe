@@ -257,8 +257,41 @@ if ( 'user_listing' == get_post_type($post->ID) ) {
 	<div class="status-tag <?php echo $fields['statustag'];?>"><?php echo $fields['statustag'];?></div>
 	<?php
 	echo '</div>';
-}?><div class="col-sm-4 result-detail-wrapper col-results">  <!-- result detail wrapper -->
-	<p class="vehicle-name"><span class="mini-hide"><?php if ( $fields['year']){ echo $fields['year'];}else {  echo ''; }?></span> <?php  $terms_child = get_the_terms($post->ID,'makemodel');
+}?><div class="col-sm-3 result-detail-wrapper col-results">  <!-- result detail wrapper -->
+	<p class="vehicle-name"><span class="mini-hide"><?php echo $post->post_title;?></p>	
+	<p class="miles-style"><?php if ( $fields['miles']){ echo number_format($fields['miles']).' '.$options['miles_text'];} elseif ($fields['miles'] == '0' ){ echo _e('0','language').' '.$options['miles_text'];} else {echo '';}  ?></p>
+	<p class="car-info"><?php if (isset( $fields['transmission'])){ echo $fields['transmission'];}else {  echo ''; };?>
+	<?php if (isset( $fields_2['cylinders'])){ echo ', '.$fields_2['cylinders'].' '.$options['number_cylinders_text'].', ';}else {  echo ''; };?><?php if (isset( $fields['exterior'])){ echo '<span class="mini-hide">'.$fields['exterior'].'</span> - ';;}else {  echo ''; };?><?php if (isset( $fields['interior'])){ echo '<span class="mini-hide">'.$fields['interior'].'</span>';}else {  echo ''; };?><?php if (isset( $fields['epamileage'])){ echo ', <span class="mini-hide">'.$fields['epamileage'].'</span>';}else {  echo ''; };?></p>
+	<p class="title-tag">
+		<?php 
+			$content = get_post_field('post_content', $post->ID);
+			$resultContent = '';
+				if(strlen($content)<=30)
+					{
+						$resultContent = $content;
+					}
+				else
+					{
+						$resultContent=substr($content,0,200);
+					}
+			echo '<span class="car-overview">'.$resultContent.'...'.'</span>';
+		?>
+	</p>	
+	 <?php
+		//  $terms = get_the_term_list( $post->ID, 'features', '<ul class="feat-style"><li>', ',</li><li>', '</li></ul>'); -->
+		//   $max_terms = 5;
+		//   $terms_array = explode( ',', $terms, $max_terms + 1 );
+		//   array_pop( $terms_array );
+		//   $terms = implode( ' ', $terms_array );
+		//   echo strip_tags( $terms,'<ul><li>' ); 
+		 ?> 
+	</div> <!--   result detail wrapper ends -->
+		<div class="col-sm-4 col-results">
+			<div class="inventory-right">
+				<p class="price-style results"><?php  if (is_numeric( $fields['price'])){ echo number_format($fields['price']); echo(' '); echo $options['currency_text']; } else {  echo $fields['price']; } ?> </p>
+					<?php	if (!empty($fields['stock'])){ echo '<p class="stock-inventory">'.$options['stock_text'].' # : '.$fields['stock'].'</p>';}else {  echo ''; }?>
+					<p class="location-tag">								
+					<?php  $terms_child = get_the_terms($post->ID,'makemodel');
 													$terms = get_the_terms($post->ID,'makemodel');
 													$sorted_terms = array();
 													$find_parent = 0;
@@ -293,63 +326,9 @@ if ( 'user_listing' == get_post_type($post->ID) ) {
 													if ( ! isset($sorted_terms_child[1])) {
 													$sorted_terms_child[1] = null;
 													} else {
-													echo $sorted_terms_child[1]->name;} ?></p>	
-	<p class="miles-style"><?php if ( $fields['miles']){ echo number_format($fields['miles']).' '.$options['miles_text'];} elseif ($fields['miles'] == '0' ){ echo _e('0','language').' '.$options['miles_text'];} else {echo '';}  ?></p>
-	<p class="car-info"><?php if (isset( $fields['transmission'])){ echo $fields['transmission'];}else {  echo ''; };?>
-	<?php if (isset( $fields_2['cylinders'])){ echo ', '.$fields_2['cylinders'].' '.$options['number_cylinders_text'].', ';}else {  echo ''; };?><?php if (isset( $fields['exterior'])){ echo '<span class="mini-hide">'.$fields['exterior'].'</span> - ';;}else {  echo ''; };?><?php if (isset( $fields['interior'])){ echo '<span class="mini-hide">'.$fields['interior'].'</span>';}else {  echo ''; };?><?php if (isset( $fields['epamileage'])){ echo ', <span class="mini-hide">'.$fields['epamileage'].'</span>';}else {  echo ''; };?></p>
-	<p class="title-tag"><?php echo $post->post_title;?></p>	
-	<?php $terms = get_the_term_list( $post->ID, 'features', '<ul class="feat-style"><li>', ',</li><li>', '</li></ul>');
-		  $max_terms = 5;
-		  $terms_array = explode( ',', $terms, $max_terms + 1 );
-		  array_pop( $terms_array );
-		  $terms = implode( ' ', $terms_array );
-		  echo strip_tags( $terms,'<ul><li>' );  ?>
-	</div> <!--   result detail wrapper ends -->
-		<div class="col-sm-3 col-results">
-			<div class="inventory-right">
-				<p class="price-style results"><?php  if (is_numeric( $fields['price'])){ echo $options['currency_text']; echo number_format($fields['price']);} else {  echo $fields['price']; } ?> </p>
-					<?php	if (!empty($fields['stock'])){ echo '<p class="stock-inventory">'.$options['stock_text'].' # : '.$fields['stock'].'</p>';}else {  echo ''; }?>
-					<p class="location-tag">								
-					<?php $locations_child = get_the_terms($post->ID,'location');
-													$sorted_locations_child = array();
-													$find_child = 0;
-													for( $i = 0; $i < sizeof($locations_child); ++$i) {
-														
-														if (is_array($locations_child))
-														{
-													   foreach ($locations_child as $location_child) {
-													      if ($location_child->parent == $find_child) {
-													         $find_child = $location_child->term_id;
-													         $sorted_locations_child[] = $location_child;
-													      		}
-															}
-														}
-													}
-													if ( ! isset($sorted_locations_child[1])) {
-													$sorted_locations_child[1] = null;
-													} else {
-													echo $sorted_locations_child[1]->name.', '; }
-													$locations = get_the_terms($post->ID,'location');
-													$sorted_locations = array();
-													$find_parent = 0;
-													for( $i = 0; $i < sizeof($locations); ++$i) {
-														if (is_array($locations))
-														{
-													   foreach ($locations as $location) {
-													      if ($location->parent == $find_parent) {
-													         $find_parent = $location->term_id;
-													         $sorted_locations[] = $location;
-													      		}
-													   		}
-													   	}
-													}
-													if ( ! isset($sorted_locations[0]->name)) {
-													$sorted_locations[0] = null;
-													} else {
-													echo $sorted_locations[0]->name; } 
-													?>									
+													echo $sorted_terms_child[1]->name;} ?>						
 				</p>
-				<p><a class="btn btn-primary" href="<?php echo get_permalink($post->ID);?>"><?php _e('View Details','language');?></a></p>
+				<p><a class="btn btn-primary" href="<?php echo get_permalink($post->ID);?>"><?php _e('Xem chi tiết','language');?></a></p>
 		</div>
 	</div>    
           <div style="clear:both;"></div>               
@@ -638,8 +617,6 @@ $("#city").selectBox();
                 'taxonomy' => 'location' ,
                 'walker' => new Walker_CategoryDropdown_Custom() ,
             ));?>
-
-<select name="location" id="city"  class="dropdown" disabled="disabled"><option value=""><?php _e('Chưa chọn trạng thái','language');?></option></select>
 <?php 
 } else { echo '';}
 ?>
@@ -699,7 +676,6 @@ $("#model").selectBox();
                 'taxonomy' => 'makemodel' ,
                 'walker' => new Walker_CategoryDropdown_Custom() ,
             ));?>
-<select name="makemodel" id="model"  class="dropdown" disabled="disabled"><option value=""><?php _e('Model (Select Make First)','language');?></option></select>
 <?php 
 } else { echo '';}
 ?>

@@ -68,38 +68,7 @@
 				$content = preg_replace("/<img[^>]+\>/i", " ", $content);          
 				$content = apply_filters('the_content', $content);
 				$content = str_replace(']]>', ']]>', $content);
-				?><h1><?php if ( $fields['year']){ echo $fields['year'];}else {  echo ''; }?></span> <?php  $terms_child = get_the_terms($post->ID,'makemodel');
-					$terms = get_the_terms($post->ID,'makemodel');
-					$sorted_terms = array();
-					$find_parent = 0;
-					for( $i = 0; $i < sizeof($terms); ++$i) {
-						if (is_array($terms))
-					{
-					foreach ($terms as $term) {
-					      if ($term->parent == $find_parent) {
-					         $find_parent = $term->term_id;
-					         $sorted_terms[] = $term; }
-					   		}
-						}
-					}
-					if ( ! isset($sorted_terms[0])) {
-					$sorted_terms[0] = null; } else {
-				    echo $sorted_terms[0]->name.' ';}
-				    $sorted_terms_child = array();
-				    $find_child = 0;
-				    for( $i = 0; $i < sizeof($terms_child); ++$i) {
-						if (is_array($terms_child)) {
-						foreach ($terms_child as $term_child) {
-					      if ($term_child->parent == $find_child) {
-					         $find_child = $term_child->term_id;
-					         $sorted_terms_child[] = $term_child; }
-							}
-						}
-					}
-					if ( ! isset($sorted_terms_child[1])) {
-				  $sorted_terms_child[1] = null; } else {
-				  echo $sorted_terms_child[1]->name;} ?></p></h1><?php
-				echo '<span class="car-overview"><h2>'.the_title().'</h2></span>';
+				?><h1><?php echo $post->post_title;?></h1><?php
 				echo '<span class="car-overview">'.wpautop(the_content()).'</span>';
 			?>
 			</ul>
@@ -129,7 +98,7 @@ $video_id = get_post_meta($post->ID, 'video_meta_box_videoid', true);		if(($vide
 			</div>
 			<?php } elseif(( $video_source == "youtube") && !empty($video_id)){ ?>
 			<div class="embed-responsive embed-responsive-16by9">
-				<iframe src="https://www.youtube.com/embed/<?php echo $video_id; ?>" class="embed-responsive-item" allowfullscreen></iframe>
+				<iframe src="https://www.youtube.com/embed/<?php parse_str( parse_url( $video_id, PHP_URL_QUERY ), $IdURL ); echo $IdURL['v']; ?>" class="embed-responsive-item" allowfullscreen></iframe>
 			</div>
 			<?php  } ?>
 			</li>
@@ -158,15 +127,17 @@ $video_id = get_post_meta($post->ID, 'video_meta_box_videoid', true);		if(($vide
 		<?php $terms_child = get_the_terms($post->ID,'location');
 				$sorted_terms_child = array();
 				$find_child = 0;
-				for( $i = 0; $i < sizeof($terms_child); ++$i) {
-				if (is_array($terms_child)) {
-				foreach ($terms_child as $term_child) {
-				  if ($term_child->parent == $find_child) {
-				     $find_child = $term_child->term_id;
-				     $sorted_terms_child[] = $term_child;
+				if($terms_child){
+					for( $i = 0; $i < sizeof($terms_child); ++$i) {
+						if (is_array($terms_child)) {
+						foreach ($terms_child as $term_child) {
+							if ($term_child->parent == $find_child) {
+								 $find_child = $term_child->term_id;
+								 $sorted_terms_child[] = $term_child;
+									}
+								}
 							}
 						}
-					}
 				}
 				if ( ! isset($sorted_terms_child[1])) {
 				$sorted_terms_child[1] = null; } else {
@@ -174,34 +145,40 @@ $video_id = get_post_meta($post->ID, 'video_meta_box_videoid', true);		if(($vide
 				$terms = get_the_terms($post->ID,'location');
 				$sorted_terms = array();
 				$find_parent = 0;
-				for( $i = 0; $i < sizeof($terms); ++$i) {
-					if (is_array($terms)) {
-				
-				foreach ($terms as $term) {
-				      if ($term->parent == $find_parent) {
-				         $find_parent = $term->term_id;
-				         $sorted_terms[] = $term;
-				      		}
-				   		}
+				if($terms){
+					for( $i = 0; $i < sizeof($terms); ++$i) {
+						if (is_array($terms)) {
+					
+					foreach ($terms as $term) {
+								if ($term->parent == $find_parent) {
+									 $find_parent = $term->term_id;
+									 $sorted_terms[] = $term;
+										}
+								 }
+						}
 					}
 				}
 				if ( ! isset($sorted_terms[0])) {
 				$sorted_terms[0] = null; } else {
-				echo ', '.$sorted_terms[0]->name.'</p><div style="clear:both"></div></li>';} 
+				echo '</p><div style="clear:both"></div></li>';} 
 				global $user_ID;
 				if  (get_the_author_meta('phone',$user_ID)  == true ) {
 				echo '<li><p>'.__('Phone: ','language').'</p>'.get_the_author_meta('phone').'</li>';  }else {  echo ''; }
-				if ((is_numeric( $fields['price']))){ echo '<li><p>'.$options['price_text'].':</p> '.$options['currency_text']; echo number_format($fields['price']).'</li>';}else {  echo '<li><p>'.$options['price_text'].':</p> '.$fields['price'].'<li>'; }
+				if ((is_numeric( $fields['price']))){ echo '<li><p>'.$options['price_text'].':</p> '.number_format($fields['price']); echo ' '; echo $options['currency_text'].'</li>';}else {  echo '<li><p>'.$options['price_text'].' '.':</p> '.$fields['price'].'<li>'; }
 				if (!empty( $fields['miles'])){ echo '<li><p>'.$options['miles_text'].':</p> '.$fields['miles'].'</li>';}else {  echo ''; }
-           		if (!empty( $fields['vehicle_type'])){ echo '<li><p>'.$options['vehicle_type_text'].':</p> '.$fields['vehicle_type'].'</li>';}else {  echo ''; }
-            	if (!empty( $fields['drive'])){ echo '<li><p>'.$options['drive_text'].':</p> '.$fields['drive'].'</li>';}else {  echo ''; }
-            	if (!empty( $fields['transmission'])){ echo '<li><p>'.$options['transmission_text'].':</p> '.$fields['transmission'].'</li>';}else {  echo ''; }
-            	if (!empty( $fields['exterior'])){ echo '<li><p>'.$options['exterior_text'].':</p> '.$fields['exterior'].'</li>';}else {  echo ''; }
-   				if (!empty( $fields['interior'])){ echo '<li><p>'.$options['interior_text'].':</p> '.$fields['interior'].'</li>';}else {  echo ''; }
-   				if (!empty( $fields['epamileage'])){ echo '<li><p>'.$options['epa_mileage_text'].':</p> '.$fields['epamileage'].'</li>';}else {  echo ''; }
-   				if (!empty($fields['stock'])){ echo '<li><p>'.$options['stock_text'].':</p> '.$fields['stock'].'</li>';}else {  echo ''; }
-   				if (!empty( $fields['VIN'])){ echo '<li><p>'.$options['vin_text'].':</p> '.$fields['VIN'].'</li>';}else {  echo ''; }
-   				if (!empty( $fields['vin'])){ echo '<li><p>'.$options['vin_text'].':</p> '.$fields['vin'].'</li>';}else {  echo ''; }?>
+				if (!empty( $fields['vehicle_type'])){ echo '<li><p>'.$options['vehicle_type_text'].':</p> '.$fields['vehicle_type'].'</li>';}else {  echo ''; }
+				if (!empty( $fields['drive'])){ echo '<li><p>'.$options['drive_text'].':</p> '.$fields['drive'].'</li>';}else {  echo ''; }
+				// hộp số
+				if (!empty( $fields['transmission'])){ echo '<li><p>'.$options['transmission_text'].':</p> '.$fields['transmission'].'</li>';}else {  echo ''; }
+				//  màu ngoại nội thất 
+				if (!empty( $fields['exterior'])){ echo '<li><p>'.$options['exterior_text'].':</p> '.$fields['exterior'].'</li>';}else {  echo ''; }
+				if (!empty( $fields['interior'])){ echo '<li><p>'.$options['interior_text'].':</p> '.$fields['interior'].'</li>';}else {  echo ''; }
+				if (!empty( $fields['epamileage'])){ echo '<li><p>'.$options['epa_mileage_text'].':</p> '.$fields['epamileage'].'</li>';}else {  echo ''; }
+				// giải trí trên xe
+				if (!empty($fields['stock'])){ echo '<li><p>'.$options['stock_text'].':</p> '.$fields['stock'].'</li>';}else {  echo ''; }
+					// tính năng an toàn
+				if (!empty( $fields['VIN'])){ echo '<li><p>'.$options['vin_text'].':</p> '.$fields['VIN'].'</li>';}else {  echo ''; }
+				if (!empty( $fields['vin'])){ echo '<li><p>'.$options['vin_text'].':</p> '.$fields['vin'].'</li>';}else {  echo ''; }?>
    				<div style="clear: both"></div>
    				<div><?php if (!empty( $fields['carfax'])){ ?><a class="carfax" target="_blank" href='http://www.carfax.com/VehicleHistory/p/Report.cfx?partner=<?php  echo $fields['carfax']; ?>&vin=<?php  echo $fields['vin']; ?>'><img style="border:1px solid #ccc" src='http://www.carfaxonline.com/media/img/subscriber/buyback.jpg' border='0'></a><?php  }else {   echo '';  }?></div>		
    			</ul>
