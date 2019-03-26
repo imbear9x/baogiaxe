@@ -98,8 +98,7 @@ function my_theme_options_init() {
 	add_settings_field( 'transmission_text', __( 'Transmission:', 'language' ), 	'my_settings_field_transmission_text_input', 'theme_options', 'general' );	
 	add_settings_field( 'stock_text', __( 'Stock #:', 'language' ), 'my_settings_field_stock_text_input', 	'theme_options', 'general' );
 	add_settings_field( 'vin_text', __( 'VIN:', 'language' ), 'my_settings_field_vin_text_input', 'theme_options', 	'general' );
-	add_settings_field( 'citympg_text', __( 'City MPG:', 'language' ), 'my_settings_field_citympg_text_input', 'theme_options', 	'general' );
-
+	add_settings_field( 'citympg_text', __( 'Khuyến mãi:', 'language' ), 'my_settings_field_citympg_text_input', 'theme_options', 	'general' );
 	add_settings_field( 'highwaympg_text', __( 'Highway MPG:', 'language' ), 'my_settings_field_highwaympg_text_input', 'theme_options', 	'general' );
 
 	add_settings_field( 'carfax_text', __( 'Carfax Partner ID:', 'language' ), 'my_settings_field_carfax_text_input', 	'theme_options', 'general' );
@@ -171,7 +170,7 @@ if ( ! function_exists ( 'my_get_theme_options' ) ) {
 	'epa_mileage_text'     => __('EPA Mileage','language'),
 	'stock_text'     => __('Tiện ích','language'),
 	'vin_text'     => __('An toàn','language'),
-	'citympg_text'     => __('City MPG','language'),
+	'citympg_text'     => __('Khuyến mãi','language'),
 
 	'highwaympg_text'     => __('Highway MPG','language'),
 

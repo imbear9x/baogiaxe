@@ -205,7 +205,7 @@ function cps_ajax_search($meta_boxes){
       </div>
 </div>
 <script>
-	$('#filt_1 .sort_each_item > a').text('<?php _e('Miles','language');?>');
+	$('#filt_1 .sort_each_item > a').text('<?php _e('purchase','language');?>');
 	$('#filt_2 .sort_each_item > a').text('<?php _e('Year','language');?>');
 	$('#filt_3 .sort_each_item > a').text('<?php _e('Price','language');?>');
 </script>
@@ -259,9 +259,9 @@ if ( 'user_listing' == get_post_type($post->ID) ) {
 	echo '</div>';
 }?><div class="col-sm-3 result-detail-wrapper col-results">  <!-- result detail wrapper -->
 	<p class="vehicle-name"><span class="mini-hide"><?php echo $post->post_title;?></p>	
-	<p class="miles-style"><?php if ( $fields['miles']){ echo number_format($fields['miles']).' '.$options['miles_text'];} elseif ($fields['miles'] == '0' ){ echo _e('0','language').' '.$options['miles_text'];} else {echo '';}  ?></p>
-	<p class="car-info"><?php if (isset( $fields['transmission'])){ echo $fields['transmission'];}else {  echo ''; };?>
-	<?php if (isset( $fields_2['cylinders'])){ echo ', '.$fields_2['cylinders'].' '.$options['number_cylinders_text'].', ';}else {  echo ''; };?><?php if (isset( $fields['exterior'])){ echo '<span class="mini-hide">'.$fields['exterior'].'</span> - ';;}else {  echo ''; };?><?php if (isset( $fields['interior'])){ echo '<span class="mini-hide">'.$fields['interior'].'</span>';}else {  echo ''; };?><?php if (isset( $fields['epamileage'])){ echo ', <span class="mini-hide">'.$fields['epamileage'].'</span>';}else {  echo ''; };?></p>
+	<?php if ( $fields['miles']){ echo '<span class="font-bold">'.number_format($fields['miles']).'</span> <span class="car-info">'.$options['miles_text'].'</span>';} elseif ($fields['miles'] == '0' ){ echo _e('0','language').' '.$options['miles_text'];} else {echo '';}  ?>
+	<p class="miles-style"><?php if (isset( $fields['transmission'])){ echo $options['transmission_text'].': '.$fields['transmission'];}else {  echo ''; };?>
+	<?php if (isset( $fields['exterior'])){ echo '<p class="miles-style">'.$options['exterior_text'].': '.$fields['exterior'].'</p>';}else {  echo ''; };?><?php if (isset( $fields['interior'])){ echo '<p class="miles-style">'.$options['interior_text'].': '.$fields['interior'].'</p>';}else {  echo ''; };?><?php if (isset( $fields['epamileage'])){ echo ', <span class="mini-hide">'.$fields['epamileage'].'</span>';}else {  echo ''; };?></p>
 	<p class="title-tag">
 		<?php 
 			$content = get_post_field('post_content', $post->ID);
@@ -289,45 +289,48 @@ if ( 'user_listing' == get_post_type($post->ID) ) {
 		<div class="col-sm-4 col-results">
 			<div class="inventory-right">
 				<p class="price-style results"><?php  if (is_numeric( $fields['price'])){ echo number_format($fields['price']); echo(' '); echo $options['currency_text']; } else {  echo $fields['price']; } ?> </p>
-					<?php	if (!empty($fields['stock'])){ echo '<p class="stock-inventory">'.$options['stock_text'].' # : '.$fields['stock'].'</p>';}else {  echo ''; }?>
-					<p class="location-tag">								
-					<?php  $terms_child = get_the_terms($post->ID,'makemodel');
-													$terms = get_the_terms($post->ID,'makemodel');
-													$sorted_terms = array();
-													$find_parent = 0;
-													for( $i = 0; $i < sizeof($terms); ++$i) {
-														if (is_array($terms))
-														{
-													   foreach ($terms as $term) {
-													      if ($term->parent == $find_parent) {
-													         $find_parent = $term->term_id;
-													         $sorted_terms[] = $term;
-													      }
-													   }
-													}
-													}	
-													if ( ! isset($sorted_terms[0])) {
-													$sorted_terms[0] = null;
-													} else {
-													echo $sorted_terms[0]->name.' ';}
-													$sorted_terms_child = array();
-													$find_child = 0;
-													for( $i = 0; $i < sizeof($terms_child); ++$i) {
-														if (is_array($terms_child))
-														{
-													   foreach ($terms_child as $term_child) {
-													      if ($term_child->parent == $find_child) {
-													         $find_child = $term_child->term_id;
-													         $sorted_terms_child[] = $term_child;
-													      		}
-													   		}
-													   	}
-													}
-													if ( ! isset($sorted_terms_child[1])) {
-													$sorted_terms_child[1] = null;
-													} else {
-													echo $sorted_terms_child[1]->name;} ?>						
-				</p>
+					<?php	if (!empty($fields['stock'])){ echo '<p class="miles-style" style="padding:0px 10px">'.$options['stock_text'].' : '.$fields['stock'].'</p>';}else {  echo ''; }?>
+					<?php	if (!empty($fields['VIN'])){ echo '<p class="miles-style" style="padding:0px 10px 12px">'.$options['vin_text'].' : '.$fields['VIN'].'</p>';}else {  echo ''; }?>
+					<!-- <p class="location-tag">								 -->
+					<?php 
+					//  $terms_child = get_the_terms($post->ID,'makemodel');
+					// 								$terms = get_the_terms($post->ID,'makemodel');
+					// 								$sorted_terms = array();
+					// 								$find_parent = 0;
+					// 								for( $i = 0; $i < sizeof($terms); ++$i) {
+					// 									if (is_array($terms))
+					// 									{
+					// 								   foreach ($terms as $term) {
+					// 								      if ($term->parent == $find_parent) {
+					// 								         $find_parent = $term->term_id;
+					// 								         $sorted_terms[] = $term;
+					// 								      }
+					// 								   }
+					// 								}
+					// 								}	
+					// 								if ( ! isset($sorted_terms[0])) {
+					// 								$sorted_terms[0] = null;
+					// 								} else {
+					// 								echo $sorted_terms[0]->name.' ';}
+					// 								$sorted_terms_child = array();
+					// 								$find_child = 0;
+					// 								for( $i = 0; $i < sizeof($terms_child); ++$i) {
+					// 									if (is_array($terms_child))
+					// 									{
+					// 								   foreach ($terms_child as $term_child) {
+					// 								      if ($term_child->parent == $find_child) {
+					// 								         $find_child = $term_child->term_id;
+					// 								         $sorted_terms_child[] = $term_child;
+					// 								      		}
+					// 								   		}
+					// 								   	}
+					// 								}
+					// 								if ( ! isset($sorted_terms_child[1])) {
+					// 								$sorted_terms_child[1] = null;
+					// 								} else {
+					// 								echo $sorted_terms_child[1]->name;} 
+													?>						
+				<!-- </p> -->
 				<p><a class="btn btn-primary" href="<?php echo get_permalink($post->ID);?>"><?php _e('Xem chi tiết','language');?></a></p>
 		</div>
 	</div>    

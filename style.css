@@ -1127,7 +1127,7 @@ ul.refine-nav li.active {
     margin: 0;
     font-weight: 700;
     font-size: 16px;
-    color: #444;
+    color: #000204;
 }
 
 .arrivals-details {
@@ -1143,7 +1143,13 @@ ul.refine-nav li.active {
     color: red;
     font-family: 'Open Sans', sans-serif;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 15px;
+}
+.arrivals-details .khuyen-mai {
+    color: #0872cc;
+}
+.arrivals-details .luot-mua {
+    font-weight: bold
 }
 
 .new-arrivals-list:hover {
@@ -2709,7 +2715,7 @@ a.page-numbers:hover {
 .result-car .result-detail-wrapper p.vehicle-name {
     font-size: 16px;
     font-weight: bold;
-    color: #333;
+    color: #267ec8;
 }
 
 .result-car .result-detail-wrapper .title-tag {
@@ -2766,7 +2772,7 @@ a.page-numbers:hover {
     font-weight: 700;
     margin: 0px 0 0px 0;
     padding: 4px 10px;
-    color: #333;
+    color: #ec0a0a;
 }
 
 .inventory-right .btn-primary {
@@ -2841,7 +2847,7 @@ a.page-numbers:hover {
 
 .meta-style {
     font-size: 14px;
-    color: #333;
+    color: black;
 }
 
 .inventory-right {
@@ -3780,6 +3786,8 @@ p.car-info {
     font-size: 18px!important;
 }
 
+
+
 .arrivals-details .meta-style {
     text-align: center;
     font-size: 16px!important;
@@ -3973,6 +3981,10 @@ a.result-car-link p.vehicle-name {
     font-size: 20px;
     font-weight: bold;
     color: #267ec8;
+}
+.result-car .font-bold{
+    font-weight: bold;
+    color: #000;
 }
 p.price-style.results {
     text-align: center;
