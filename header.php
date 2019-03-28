@@ -25,6 +25,18 @@
     var s = document.getElementsByTagName('script')[0];
     s.parentNode.insertBefore(wf, s);
   })(); </script>
+	<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId            : '391583964997452',
+      autoLogAppEvents : true,
+      xfbml            : true,
+      version          : 'v3.2'
+    });
+  };
+</script>
+<script async defer src="https://connect.facebook.net/en_US/sdk.js"></script>
+    
 <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

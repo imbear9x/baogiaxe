@@ -124,7 +124,6 @@ function cps_display_meta_box_search_form($meta_boxes){
 					$formatted = number_format($Range->max);
 							
 	?>
-
 <!--qweqweqwe-->
                     <div class="price-dropdowns-container">
                         <div class="price-dropdown-min">
@@ -264,17 +263,16 @@ if ( 'user_listing' == get_post_type($post->ID) ) {
 	<?php if (isset( $fields['exterior'])){ echo '<p class="miles-style">'.$options['exterior_text'].': '.$fields['exterior'].'</p>';}else {  echo ''; };?><?php if (isset( $fields['interior'])){ echo '<p class="miles-style">'.$options['interior_text'].': '.$fields['interior'].'</p>';}else {  echo ''; };?><?php if (isset( $fields['epamileage'])){ echo ', <span class="mini-hide">'.$fields['epamileage'].'</span>';}else {  echo ''; };?></p>
 	<p class="title-tag">
 		<?php 
-			$content = get_post_field('post_content', $post->ID);
 			$resultContent = '';
-				if(strlen($content)<=30)
-					{
-						$resultContent = $content;
-					}
-				else
-					{
-						$resultContent=substr($content,0,200);
-					}
-			echo '<span class="car-overview">'.$resultContent.'...'.'</span>';
+			if(strlen($fields['CityMPG'])<=100)
+				{
+					$resultContent = $fields['CityMPG'];
+				}
+			else
+				{
+					$resultContent=substr($fields['CityMPG'],0,100);
+				}
+		echo $resultContent;
 		?>
 	</p>	
 	 <?php
@@ -603,23 +601,6 @@ $("#city").selectBox();
         });
     }); 
 </script>             
-<?php
- wp_dropdown_categories(array(
- 	'orderby' => 'name',
- 	'order'=> 'ASC',
-                'show_count' => '0' ,
-                'selected' => '1' ,
-                'hierarchical' => '1' ,
-                'depth' => '1' ,
-                'hide_empty' => '1' ,
-                'exclude' => '1' ,
-                'class' => 'dropdown',
-                'show_option_none' => __('Chọn trạng thái','language'),
-                'option_none_value' => '',
-                'name' => 'location' ,
-                'taxonomy' => 'location' ,
-                'walker' => new Walker_CategoryDropdown_Custom() ,
-            ));?>
 <?php 
 } else { echo '';}
 ?>
@@ -662,23 +643,23 @@ $("#model").selectBox();
     }); 
 </script>             
 <?php
- wp_dropdown_categories(array(
+//  wp_dropdown_categories(array(
 
- 				'orderby' => 'name',
- 				'order'=> 'ASC',
-                'show_count' => '0' ,
-                'selected' => '1' ,
-                'hierarchical' => '1' ,
-                'depth' => '1' ,
-                'hide_empty' => '0' ,
-                'exclude' => '1' ,
-                'class' => 'dropdown',
-                'show_option_none' =>  __('Select Make','language'),
-                'option_none_value' =>  '',
-                'name' => 'makemodel' ,
-                'taxonomy' => 'makemodel' ,
-                'walker' => new Walker_CategoryDropdown_Custom() ,
-            ));?>
+//  				'orderby' => 'name',
+//  				'order'=> 'ASC',
+//                 'show_count' => '0' ,
+//                 'selected' => '1' ,
+//                 'hierarchical' => '1' ,
+//                 'depth' => '1' ,
+//                 'hide_empty' => '0' ,
+//                 'exclude' => '1' ,
+//                 'class' => 'dropdown',
+//                 'show_option_none' =>  __('Select Make','language'),
+//                 'option_none_value' =>  '',
+//                 'name' => 'makemodel' ,
+//                 'taxonomy' => 'makemodel' ,
+//                 'walker' => new Walker_CategoryDropdown_Custom() ,
+            // ));?>
 <?php 
 } else { echo '';}
 ?>

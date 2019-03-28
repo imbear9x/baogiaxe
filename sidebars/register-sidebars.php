@@ -119,24 +119,10 @@ function sidebars_and_widgets()
 	
 	$active_widgets['specs'][0] = 'full_specs-' . $counter;
 	$specs_text[ $counter ] = array (
-		'title'         => 'Full Specifications',
+		'title'         => 'Thông số đặc biệt',
 		'title2'        => 'Warranty',
 		'title3'        => 'Financing',
 		'title4'        => 'Trade-In',
-		'text2'			=> '5-Day Money-Back Guarantee At Car Dealer, we know that not every car is perfect for every person, so all used Car Dealer cars come with our 5-Day Money-Back Guarantee. You can return any car for any reason within a 5-day period. Simply bring it back in the condition in which it was purchased, and you will get a full refund.',
-		'text3'			=> 'Affordable solutions
-Car Dealer offers some of the most competitive terms in the industry with solutions for a wide range of credit profiles.
-
-Speed
-Fill out our quick credit application and get decisions in a matter of minutes.
-
-Trust
-We only use respected and reputable finance sources, and we always protect our customers information.
-
-Integrity
-Straightforward, honest business practices are the standard at Car Dealer, and our financing is no exception. If you find a more competitive offer elsewhere, you have three business days to change your mind.',
-		'text4'			=> 'Sell your current car and buy a new one at the same place!
-You can even apply your written offer towards the purchase of a new car.',
 	);
 	update_option( 'widget_full_specs', $specs_text );
 	$active_widgets['featured'][0] = 'feat_widget-' . $counter;
@@ -177,8 +163,8 @@ info@gorillathemesauto.com','language'),
 	update_option( 'widget_footer_4', $foot3_text );
 	$active_widgets['search'][1] = 'top-deals-' . $counter;
 	$deals[ $counter ] = array (
-		'deals_title'         => __('Deal of the Week','language'),
-		'num_deals'			=>  '3',
+		'deals_title'         => __('Phổ biến trong tuần','language'),
+		'num_deals'			=>  '5',
 	);
 	update_option( 'widget_top-deals', $deals );
 	$active_widgets['type'][0] = 'find_by_type-' . $counter;
@@ -404,7 +390,7 @@ class Top_Deals extends WP_Widget {
    <?php if ( isset( $fields[ 'year' ] ) ) {
 			echo $fields['year'];
 		}
-		else { echo '';		}?>  <?php the_title();?> <span class="top-deals-price"><?php  if (is_numeric( $fields['price'])){ echo $options['currency_text']; echo number_format($fields['price']);} else {  echo $fields['price']; } ?> 
+		else { echo '';		}?>  <?php the_title();?> <span class="top-deals-price"><?php  if (is_numeric( $fields['price'])){  echo number_format($fields['price']);echo ' '.$options['currency_text'];} else {  echo $fields['price']; } ?> 
 		</span>
 			</span>
 	     </span>
@@ -936,39 +922,7 @@ if ($mytype=='gtcd') {
 				$content = preg_replace("/<img[^>]+\>/i", " ", $content);          
 				$content = apply_filters('the_content', $content);
 				$content = str_replace(']]>', ']]>', $content);
-				?><?php if ( $fields['year']){ echo $fields['year'];}else {  echo ''; }?></span> <?php  $terms_child = get_the_terms($post->ID,'makemodel');
-					$terms = get_the_terms($post->ID,'makemodel');
-					$sorted_terms = array();
-					$find_parent = 0;
-					for( $i = 0; $i < sizeof($terms); ++$i) {
-						if (is_array($terms))
-					{
-					foreach ($terms as $term) {
-					      if ($term->parent == $find_parent) {
-					         $find_parent = $term->term_id;
-					         $sorted_terms[] = $term; }
-					   		}
-						}
-					}
-					if ( ! isset($sorted_terms[0])) {
-					$sorted_terms[0] = null; } else {
-				    echo $sorted_terms[0]->name.' ';}
-				    $sorted_terms_child = array();
-				    $find_child = 0;
-				    for( $i = 0; $i < sizeof($terms_child); ++$i) {
-						if (is_array($terms_child)) {
-						foreach ($terms_child as $term_child) {
-					      if ($term_child->parent == $find_child) {
-					         $find_child = $term_child->term_id;
-					         $sorted_terms_child[] = $term_child; }
-							}
-						}
-					}
-					if ( ! isset($sorted_terms_child[1])) {
-				  $sorted_terms_child[1] = null; } else {
-				  echo $sorted_terms_child[1]->name;} ?>
-		  								<span class="price-style"><?php  if (is_numeric( $fields['price'])){ echo '&nbsp;&nbsp;'.$options['currency_text']; echo number_format($fields['price']);} else {  echo $fields['price']; } ?>
-		  								</span>
+				?><?php echo $post->post_title;?></span> 
 		  							</h2>
 								</div> 
 								 <?php 
@@ -1148,25 +1102,9 @@ class Full_Specs extends WP_Widget{
     </li>
     <?php } ?>
     <?php if(empty($instance['title2'])){echo '';}else{?>
-    <li class="second"> <span><?php echo $title2 ?></span>
-      <ul>
-        <li><?php echo wpautop( $text2 ) ; ?></li>
-      </ul>
-    </li>
-    <?php } ?>
-    <?php if(empty($instance['title3'])){echo '';}else{?>
-    <li class="third"> <span><?php echo $title3; ?></span>
-      <ul>
-        <?php echo wpautop ($text3); ?>
-      </ul>
-    </li>
-    <?php } ?>
-    <?php if(empty($instance['title4'])){echo '';}else{?>
-    <li class="fourth"> <span><?php echo $title4; ?></span>
-      <ul>
-        <?php echo $text4; ?>
-      </ul>
-    </li>
+    <!-- 
+			Đoạn này cắt vứt cụ nó đi nhé :D
+		 -->
     <?php } ?>
   </ul>
 </div>

@@ -164,7 +164,7 @@ $meta_boxes = array(
 
 												 "8" => $options["Ford_Cuu_Thuong"] ,
 
-												 "9" => $options["Ford_VietNam"] ,
+												 "9" => $options["Ford_Tourneo"] ,
 												 
                          "10" => $options["Ford_Other"] ,
 

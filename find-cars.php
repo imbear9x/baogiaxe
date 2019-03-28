@@ -36,8 +36,8 @@
 
 				<div class="col-sm-2">
 					<li>
-						<a id="link" href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_VietNam']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/Ford_VietNam.png" alt="<?php echo $options['Ford_VietNam'];?>" /></a>
-						<a href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_VietNam']);?>/"><strong><?php echo $options['Ford_VietNam'];?></strong></a>
+						<a id="link" href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Tourneo']);?>/"><img src="<?php bloginfo('template_url'); ?>/assets/images/product-images/Ford_Tourneo.png" alt="<?php echo $options['Ford_Tourneo'];?>" /></a>
+						<a href="<?php bloginfo('url'); ?>/#search/<?php echo strtolower(str_replace(" ", "", 'vehicletype')); ?>-<?php echo str_replace(' ', '+', $options['Ford_Tourneo']);?>/"><strong><?php echo $options['Ford_Tourneo'];?></strong></a>
 					</li>
 				</div>
 			

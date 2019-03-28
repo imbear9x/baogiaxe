@@ -34,11 +34,6 @@
  							<?php _e('Overview','language');?>
           				</a>
 		  			</li>
-		  			<li><a href="#features" role="tab" data-toggle="tab">
-		  					<?php _e('Features','language');?>
-          				</a>
-		  			</li>
-					
 					<?php $video_source = get_post_meta($post->ID, 'video_meta_box_source', true);
 						  $video_id = get_post_meta($post->ID, 'video_meta_box_videoid', true);	
 						  if(($video_source == "vimeo") && !empty($video_id)){ ?>
@@ -54,11 +49,6 @@
           			</a>
 		  			</li>									
 					<?php  } ?>
-		  			<li>
-		  				<a href="#contact" role="tab" data-toggle="tab">
-		  					<?php _e('Contact Us','language');?>
-          				</a>
-		  			</li>
           		</ul>
 		  	<div class="tab-content hideOnSearch">
 			  	<div class="tab-pane active" id="overview">
@@ -111,7 +101,7 @@ $video_id = get_post_meta($post->ID, 'video_meta_box_videoid', true);		if(($vide
 <div class="col-sm-4 single-sidebar hideOnSearch">	
 	<span class="info-single">
 		<h3 class="price-single"><?php $options['price_text'];?>
-			<?php if (is_numeric( $fields['price'])){ echo $options['currency_text'].number_format($fields['price']);}else {  echo  $fields['price']; }?>
+			<?php if (is_numeric( $fields['price'])){ echo number_format($fields['price']).' '.$options['currency_text'];}else {  echo  $fields['price']; }?>
 		</h3>
 		<div class="buttons-action">
 		

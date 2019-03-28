@@ -224,7 +224,7 @@ if ( ! function_exists ( 'my_get_theme_options' ) ) {
 
 	'Ford_Ranger_Raptor_2019' => __('Ford Ranger Raptor 2019','language'),
 
-	'Ford_VietNam' => __('Ford Việt Nam','language'),
+	'Ford_Tourneo' => __('Ford Tourneo','language'),
 	
 	'Ford_Cuu_Thuong' => __('Xe Cứu Thương','language'),
 	
@@ -716,8 +716,8 @@ function my_theme_options_validate( $input ) {
 	$output['Ford_Ranger_Raptor_2019'] = wp_filter_nohtml_kses( $input['Ford_Ranger_Raptor_2019'] );
 	if ( isset( $input['Ford_Cuu_Thuong'] ) && ! empty( $input['Ford_Cuu_Thuong'] ) )
 	$output['Ford_Cuu_Thuong'] = wp_filter_nohtml_kses( $input['Ford_Cuu_Thuong'] );
-	if ( isset( $input['Ford_VietNam'] ) && ! empty( $input['Ford_VietNam'] ) )
-	$output['Ford_VietNam'] = wp_filter_nohtml_kses( $input['Ford_VietNam'] );
+	if ( isset( $input['Ford_Tourneo'] ) && ! empty( $input['Ford_Tourneo'] ) )
+	$output['Ford_Tourneo'] = wp_filter_nohtml_kses( $input['Ford_Tourneo'] );
 	if ( isset( $input['Ford_Other'] ) && ! empty( $input['Ford_Other'] ) )
 	$output['Ford_Other'] = wp_filter_nohtml_kses( $input['Ford_Other'] );
 	return apply_filters( 'my_theme_options_validate', $output, $input );
@@ -1522,11 +1522,6 @@ function my_social_sharing_top($content) {
 		$content .= '<a class="my-link" href="'.$facebookURL.'" target="_blank">Facebook</a>';
 		$content .= '</div>';
 		$content .= '</div>';
-		$content .= '<div class="col-sm-4">';
-		$content .= '<div class="my-googleplus">';
-		$content .= '<a class="my-link" href="'.$googleURL.'" target="_blank">Google+</a>';
-		$content .= '</div>';
-		$content .= '</div>';
 		$content .= '</div>';
 		return $content;
 		}else{
@@ -1545,19 +1540,14 @@ function my_social_sharing_buttons($content) {
 		$googleURL = 'https://plus.google.com/share?url='.$myURL;
 		$pinterestURL = 'https://pinterest.com/pin/create/button/?url='.$myURL.'&amp;media='.$myThumbnail[0].'&amp;description='.$myTitle;
 		$content .= '<div class="my-social col-sm-12">';
-		$content .= '<div class="col-xs-4 col-sm-12 col-md-4">';
+		$content .= '<div class="col-xs-6 col-sm-12 col-md-6">';
 		$content .= '<div class="my-twitter">';
 		$content .= '<a class="my-link" href="'. $twitterURL .'" target="_blank">Twitter</a>';
 		$content .= '</div>';
 		$content .= '</div>';
-		$content .= '<div class="col-xs-4 col-sm-12 col-md-4">';
+		$content .= '<div class="col-xs-6 col-sm-12 col-md-6">';
 		$content .= '<div class="my-facebook">';
 		$content .= '<a class="my-link" href="'.$facebookURL.'" target="_blank">Facebook</a>';
-		$content .= '</div>';
-		$content .= '</div>';
-		$content .= '<div class="col-xs-4 col-sm-12 col-md-4">';
-		$content .= '<div class="my-googleplus">';
-		$content .= '<a class="my-link" href="'.$googleURL.'" target="_blank">Google+</a>';
 		$content .= '</div>';
 		$content .= '</div>';
 		$content .= '</div>';
