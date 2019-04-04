@@ -578,7 +578,7 @@ margin: 0;
 }
 @media (min-width: 768px) {
 .item-container .arrivals-details{
-	min-height: 194px;
+	min-height: 220px;
 	}
 }
    

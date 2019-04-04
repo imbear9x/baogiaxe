@@ -4432,7 +4432,7 @@ a.logo.visible-xs{
 }
 
 .item-container .arrivals-details {
-    min-height: 118px;
+    min-height: 220px;
 }
 }  
 @media (min-width:480px) and (max-width:768px) {
